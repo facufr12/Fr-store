@@ -1,0 +1,11 @@
+.titulo {
+  font-size: 25px;
+
+  top: -30px;
+  margin: auto;
+  color: whitesmoke;
+  padding: auto;
+  position: absolute;
+text-align: center;
+  font-family: cursive;
+}

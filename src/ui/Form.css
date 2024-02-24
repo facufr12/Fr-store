@@ -1,0 +1,54 @@
+/* MyForm.css */
+.form-container {
+  max-width: 400px; /* Limita el ancho del contenedor */
+  margin:  auto; /* Centra el contenedor en la página */
+  padding: 3vh; /* Agrega espacio interno */
+  border: 2px solid #4caf50;/* Agrega un borde */
+  border-radius: 40px; /* Agrega esquinas redondeadas */
+  background-color: transparent;
+  text-align: left;
+  position: fixed;
+  bottom: 160px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.my-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.my-form div {
+  margin-bottom: 10px; /* Agrega espacio entre los elementos del formulario */
+}
+
+.my-form label {
+  margin-bottom: 10px; /* Agrega espacio entre las etiquetas y los campos */
+  margin: auto;
+  padding: 1vh;
+}
+
+.button {
+  color: black;
+  background-color: #4caf50;
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+label {
+  font-size: 17px;
+  text-transform:capitalize;
+}
+
+.errormessage {
+  font-size: 15px;
+  color: red;
+}
+
+.field {
+  font-size: 18px;
+  border: 1px solid #4caf50;
+}

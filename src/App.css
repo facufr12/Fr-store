@@ -1,0 +1,17 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  align-items: center;
+
+}
+
+
+
+.container {
+  display: flex;
+  flex-wrap:wrap; /* Permite que los elementos se ajusten en varias filas si es necesario */
+  justify-content: space-around; /* Distribuye los elementos de manera uniforme a lo largo del contenedor */
+  
+}
