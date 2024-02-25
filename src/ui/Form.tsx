@@ -2,13 +2,14 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import './Form.css'; // Importa el archivo de estilos CSS
+import { axiosInstance } from '../services/axios.config.js';
 
 const validationSchema  = Yup.object().shape({
-  producto: Yup.string().required('Product is required'),
-  descripcion: Yup.string().required('Description is required'),
-  imagen: Yup.string().required('Image is required'),
+  product: Yup.string().required('Product is required'),
+  description: Yup.string().required('Description is required'),
+  image: Yup.string().required('Image is required'),
   stock: Yup.number().required('Stock is required').positive('Stock must be positive'),
-  precio: Yup.number().required('price is required').positive('The price must be positive'),
+  price: Yup.number().required('price is required').positive('The price must be positive'),
 });
 
 const Formit = () => {
@@ -25,27 +26,27 @@ const Formit = () => {
         }}
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+       console.log(values);
+       axiosInstance.post ('/', values)
+       .then(r => console.log (r))
+       .catch( err => console.log (err))
         }}
       >
         {({ isSubmitting }) => (
           <Form className="my-form"> {/* Utiliza un formulario y aplica la clase "my-form" */}
             <div>
               <label htmlFor="product">Product:</label>
-              <Field className="field" type="text" name="producto" />
+              <Field className="field" type="text" name="product" />
               <ErrorMessage className='errormessage' name="producto" component="div" />
             </div>
             <div>
               <label htmlFor="description">Description:</label>
-              <Field className="field" type="text" name="descripcion" />
+              <Field className="field" type="text" name="description" />
               <ErrorMessage  className='errormessage' name="descripcion" component="div" />
             </div>
             <div>
               <label htmlFor="image">Image:</label>
-              <Field className="field" type="text" name="imagen" />
+              <Field className="field" type="text" name="image" />
               <ErrorMessage  className='errormessage' name="imagen" component="div" />
             </div>
             <div>
@@ -55,11 +56,11 @@ const Formit = () => {
             </div>
             <div>
               <label htmlFor="price">Price:</label>
-              <Field className="field" type="number" name="precio" />
+              <Field className="field" type="number" name="price" />
               <ErrorMessage  className='errormessage' name="precio" component="div" />
             </div>
             <button className='button' type="submit" disabled={isSubmitting}>
-              Enviar
+              Send product
             </button>
           </Form>
         )}

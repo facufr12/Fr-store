@@ -7,6 +7,7 @@ import Formit from "./ui/Form"
 import Tienda from "./components/Tienda"
 import CreateProductus from "./components/CreateProductus";
 import Marquesina from "./ui/Marquesina"
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 export default function App() {
@@ -17,7 +18,7 @@ export default function App() {
   <Titulo />
         <Navbar />
         <Routes>
-          <Route path="/" element={<Tienda />}></Route>
+          <Route path="/tienda" element={<Tienda />}></Route>
           <Route path="/formit" element={<Formit />}></Route>
           <Route path="/createproducts" element={<CreateProductus />}></Route>
        

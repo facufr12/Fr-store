@@ -12,18 +12,18 @@ function Navbar() {
       <nav className="navbar">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link to="/home" className="nav-link">
-            Tienda
+            <Link to="/tienda" className="nav-link">
+            Products
             </Link>
           </li>
           <li className="nav-item">
             <Link to="/formit" className="nav-link">
-            Formulario
+            CreateProduct
             </Link>
           </li>
           <li className="nav-item">
             <Link to="/createproducts" className="nav-link">
-           Createproducts
+           DeleteProducts
             </Link>
           </li>
         </ul>

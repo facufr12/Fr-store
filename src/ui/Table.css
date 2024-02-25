@@ -1,0 +1,27 @@
+.tabla-container {
+    width: 100%;
+    overflow-x: auto; /* Para que la tabla tenga desplazamiento horizontal si es necesario */
+    margin-top: 20px;
+    padding-top: 160px;
+    
+  }
+  
+  .tabla-ancha {
+    width: 100%;
+    border-collapse: collapse; /* Para fusionar los bordes de las celdas */
+  }
+  
+  .tabla-ancha th,
+  .tabla-ancha td {
+    padding: 9px;
+    border: 1px solid rgb(253, 253, 253); /* Borde para las celdas */
+    text-align: left;
+    width: 400px;
+    color: white;
+  }
+
+  th{
+    font-size: 17px;
+    text-transform:uppercase;
+
+  }
