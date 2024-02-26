@@ -1,30 +1,32 @@
 import React from "react";
+import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Button, IconButton } from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
 import "./Table.css";
 import TableItem from "./TableItem";
 
-const Table = ({ items, editItem }) => {
+const Tablebs = ({ items, editItem }) => {
   console.log(items);
   return (
-    <div className="tabla-container">
-      <table className="tabla-ancha">
-        <thead>
-          <tr>
-            <th>#ID</th>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th style={{ textAlign: "center" }}>Modificar</th>
-          </tr>
-        </thead>
+    <TableContainer className="tabla-container">
+      <Table className="tabla-ancha">
+        <TableHead>
+          <TableRow>
+            <TableCell align="center">#ID</TableCell>
+            <TableCell align="center">Product</TableCell>
+            <TableCell align="center">Price</TableCell>
+            <TableCell align="center">Stock</TableCell>
+            <TableCell align="center">Modificar</TableCell>
+          </TableRow>
+        </TableHead>
 
-        <tbody>
+        <TableBody>
           {items.map((item, i) => (
             <TableItem item={item} key={i} editItem={editItem} />
           ))}
-        </tbody>
-      </table>
-    </div>
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 };
 
-export default Table;
+export default Tablebs;

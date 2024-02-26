@@ -1,40 +1,48 @@
-import React, { useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import React, { useState } from "react";
+import Button from "@mui/material/Button";
+import Modal from "@mui/material/Modal";
+import "./Modal.css"
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 const Modalbs = () => {
-    const [show, setShow] = useState(false);
-  
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-  
-    // Aquí colocarías tu lógica para editar el componente
-  
-    return (
-      <>
-        <Button variant="primary" onClick={handleShow}>
-          Editar Componente
-        </Button>
-  
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Editar Componente</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            {/* Aquí colocarías el contenido del modal de edición */}
-            {/* Por ejemplo: */}
-            <p>Contenido de edición...</p>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Cerrar
-            </Button>
-            <Button variant="primary" onClick={handleClose}>
-              Guardar Cambios
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </>
-    );
-  };
-  
-  export default Modalbs;
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  return (
+    <>
+      <Button variant="contained" onClick={handleOpen}>
+        Editar Componente
+      </Button>
+      <Modal className="container"
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-title"
+        aria-describedby="modal-description"
+      >
+        <Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+          <Box sx={{ bgcolor: "background.paper", boxShadow: 24, p: 4, minWidth: 300 }}>
+            <Typography id="modal-title" variant="h6" component="h2">
+              Editar Componente
+            </Typography>
+            <Typography id="modal-description" sx={{ mt: 2 }}>
+              Contenido de edición...
+            </Typography>
+            <Box sx={{ mt: 2, display: "flex", justifyContent: "flex-end" }}>
+              <Button onClick={handleClose} color="secondary" variant="contained">
+                Cerrar
+              </Button>
+              <Button onClick={handleClose} variant="contained" sx={{ ml: 2 }}>
+                Guardar Cambios
+              </Button>
+            </Box>
+          </Box>
+        </Box>
+      </Modal>
+    </>
+  );
+};
+
+export default Modalbs;

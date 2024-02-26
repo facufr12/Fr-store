@@ -3,8 +3,9 @@
   align-items: center;
   text-align: center;
   right:auto ;
-  top: 230px;
-  position: fixed;
+  top: 120px;
+  bottom: 200px;
+  position:absolute;
   padding: 1vh;
   margin: 1vh;
 }
@@ -14,8 +15,8 @@
     padding: 1vh 2vh;
     border-radius: 40px;
     font-size: 20px;
-    position: relative;
-    top: -100px;
+    
+  
   }
   
   .navbar-nav {
