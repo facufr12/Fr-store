@@ -2,6 +2,7 @@
     width: 100%;
     overflow-x: auto; /* Para que la tabla tenga desplazamiento horizontal si es necesario */
     margin-top: 20px;
+    position: static;
     padding-top: 160px;
     
   }
