@@ -15,7 +15,7 @@ const Tablebs = ({ items, editItem }) => {
             <TableCell align="center">Product</TableCell>
             <TableCell align="center">Price</TableCell>
             <TableCell align="center">Stock</TableCell>
-            <TableCell align="center">Modificar</TableCell>
+            <TableCell align="center">Custom</TableCell>
           </TableRow>
         </TableHead>
 

@@ -24,7 +24,7 @@ const Modalbs = () => {
       >
         <Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
           <Box sx={{ bgcolor: "background.paper", boxShadow: 24, p: 4, minWidth: 300 }}>
-            <Typography id="modal-title" variant="h6" component="h2">
+            <Typography id="modal-title" variant="h6" component="h2" >
               Editar Componente
             </Typography>
             <Typography id="modal-description" sx={{ mt: 2 }}>

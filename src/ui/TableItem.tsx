@@ -1,8 +1,15 @@
 import React, { useState } from "react";
-import { TableRow, TableCell, IconButton, Modal, Box, Typography, Button } from "@mui/material";
+import {
+  TableRow,
+  TableCell,
+  IconButton,
+  Modal,
+  Box,
+  Typography,
+  Button,
+} from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import "./TableItem.css"
 
 const TableItem = ({ item, editItem }) => {
   const { product, price, stock, id } = item;
@@ -26,12 +33,12 @@ const TableItem = ({ item, editItem }) => {
       <TableCell>{price}</TableCell>
       <TableCell>{stock}</TableCell>
       <TableCell style={{ display: "flex", justifyContent: "space-evenly" }}>
-      <IconButton onClick={handleShowModal} color="primary" sx={{ mr: 1 }}>
-        <EditIcon />
-      </IconButton>
-      <IconButton color="error">
-        <DeleteIcon />
-      </IconButton>
+        <IconButton onClick={handleShowModal} color="primary" sx={{ mr: 1 }}>
+          <EditIcon />
+        </IconButton>
+        <IconButton color="error">
+          <DeleteIcon />
+        </IconButton>
       </TableCell>
       {/* Renderiza el modal cuando showModal es true */}
       <Modal open={showModal} onClose={handleCloseModal}>
@@ -47,29 +54,40 @@ const TableItem = ({ item, editItem }) => {
             minWidth: 300,
           }}
         >
-          <Typography variant="h6" component="h2" gutterBottom>
+          <Typography variant="h6" color="black" component="h2" gutterBottom>
             Editar Producto
           </Typography>
-          <Typography variant="body1" gutterBottom>
+          <Typography variant="body1" color="black" gutterBottom>
             ID: {id}
           </Typography>
-          <Typography variant="body1" gutterBottom>
+          <Typography variant="body1" color="black" gutterBottom>
             Nombre: {product}
           </Typography>
-          <Typography variant="body1" gutterBottom>
+          <Typography variant="body1" color="black" gutterBottom>
             Precio: {price}
           </Typography>
-          <Typography variant="body1" gutterBottom>
+          <Typography variant="body1 " color="black" gutterBottom>
             Stock: {stock}
           </Typography>
-          <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
-      <Button className="buton" onClick={handleCloseModal} color="secondary" variant="contained" sx={{ mr: 1 }}>
-        Cerrar
-      </Button>
-      <Button className="buton" onClick={handleCloseModal} color="primary" variant="contained">
-        Guardar
-      </Button>
-    </Box>
+          <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2}}>
+            <Button
+              className="buton"
+              onClick={handleCloseModal}
+              color="secondary"
+              variant="contained"
+              sx={{ mr: 1 }}
+            >
+              Cerrar
+            </Button>
+            <Button
+              className="buton"
+              onClick={handleCloseModal}
+              color="primary"
+              variant="contained"
+            >
+              Guardar
+            </Button>
+          </Box>
         </Box>
       </Modal>
     </TableRow>
