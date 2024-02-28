@@ -2,14 +2,38 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import "./Modal.css"
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+const initialCredentials = {
+  product: "",
+  description: "",
+  image: "",
+  stock: 0,
+  price: 0,
+};
 
 const Modalbs = () => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const validationSchema = Yup.object().shape({
+    product: Yup.string().required("Product is required"),
+    description: Yup.string().required("Description is required"),
+    image: Yup.string().required("Image is required"),
+    stock: Yup.number()
+      .required("Stock is required")
+      .positive("Stock must be positive"),
+    price: Yup.number()
+      .required("price is required")
+      .positive("The price must be positive"),
+  });
+
+
+
 
   return (
     <>

@@ -7,6 +7,7 @@ import {
   Box,
   Typography,
   Button,
+  TextField,
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -15,6 +16,7 @@ const TableItem = ({ item, editItem }) => {
   const { product, price, stock, id } = item;
 
   const [showModal, setShowModal] = useState(false); // Estado para controlar la visibilidad del modal
+  const [editedProduct, setEditedProduct] = useState({ id, product, price, stock }); // Estado para almacenar los datos editados
 
   // Función para mostrar el modal
   const handleShowModal = () => {
@@ -24,6 +26,22 @@ const TableItem = ({ item, editItem }) => {
   // Función para cerrar el modal
   const handleCloseModal = () => {
     setShowModal(false);
+  };
+
+  // Función para manejar cambios en los campos editables
+  const handleFieldChange = (event) => {
+    const { name, value } = event.target;
+    setEditedProduct((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  // Función para guardar los cambios
+  const handleSaveChanges = () => {
+    // Aquí puedes enviar los datos editados a través de alguna función, por ejemplo, editItem(editedProduct)
+    // Y luego cerrar el modal
+    handleCloseModal();
   };
 
   return (
@@ -57,19 +75,39 @@ const TableItem = ({ item, editItem }) => {
           <Typography variant="h6" color="black" component="h2" gutterBottom>
             Editar Producto
           </Typography>
-          <Typography variant="body1" color="black" gutterBottom>
-            ID: {id}
-          </Typography>
-          <Typography variant="body1" color="black" gutterBottom>
-            Nombre: {product}
-          </Typography>
-          <Typography variant="body1" color="black" gutterBottom>
-            Precio: {price}
-          </Typography>
-          <Typography variant="body1 " color="black" gutterBottom>
-            Stock: {stock}
-          </Typography>
-          <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2}}>
+          <TextField
+            name="id"
+            label="ID"
+            value={editedProduct.id}
+            onChange={handleFieldChange}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            name="product"
+            label="Nombre"
+            value={editedProduct.product}
+            onChange={handleFieldChange}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            name="price"
+            label="Precio"
+            value={editedProduct.price}
+            onChange={handleFieldChange}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            name="stock"
+            label="Stock"
+            value={editedProduct.stock}
+            onChange={handleFieldChange}
+            fullWidth
+            margin="normal"
+          />
+          <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
             <Button
               className="buton"
               onClick={handleCloseModal}
@@ -81,7 +119,7 @@ const TableItem = ({ item, editItem }) => {
             </Button>
             <Button
               className="buton"
-              onClick={handleCloseModal}
+              onClick={handleSaveChanges}
               color="primary"
               variant="contained"
             >

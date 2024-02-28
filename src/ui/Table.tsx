@@ -3,6 +3,7 @@ import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Butto
 import EditIcon from "@mui/icons-material/Edit";
 import "./Table.css";
 import TableItem from "./TableItem";
+import { useState } from "react";
 
 const Tablebs = ({ items, editItem }) => {
   console.log(items);
@@ -20,7 +21,7 @@ const Tablebs = ({ items, editItem }) => {
         </TableHead>
 
         <TableBody>
-          {items.map((item, i) => (
+          {items.map((item, i, updatedData) => (
             <TableItem item={item} key={i} editItem={editItem} />
           ))}
         </TableBody>

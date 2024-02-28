@@ -20,9 +20,10 @@ const Tienda = () => {
 
 const editItem = () => {
   console.log ("editando producto")
+  //hacer un put
 }
 
-  return (
+return (
     <div className="tienda">
   
       {error ? (
